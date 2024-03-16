@@ -6,10 +6,11 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 # Static salt for encryption
 salt = b'\xfbj@\xdc\x9aoT8\xa4\x08\x05\xffZ\xa4\xe0\xe5\xb4\x0f\x12\x99D\xd4z\xac\xee)\x92\x15$\x96\x8f\r'
+# Password for encryption
 password = "password" # The most secure password known to man
 # Generates key for encryption
 key = PBKDF2(password, salt, dkLen=32)
-
+# Message to be encrypted
 msg = b"Hello World!"
 # Creates cipher to actually encrypt our data to a form that cannot be read
 cipher = AES.new(key, AES.MODE_CBC)
